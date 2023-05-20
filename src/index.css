@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  button {
+    @apply grid place-content-center rounded-lg bg-stone-200 p-2 text-xl font-bold;
+  }
+}
