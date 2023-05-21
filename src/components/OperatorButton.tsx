@@ -3,7 +3,16 @@ type OperatorButtonProps = {
 };
 
 export default function OperatorButton({ symbol }: OperatorButtonProps) {
-  function chooseOperator(symbol: string): void {}
+  function chooseOperator(symbol: string): void {
+    // TODO
+  }
 
-  return <button onClick={() => chooseOperator(symbol)}>{symbol}</button>;
+  return (
+    <button
+      onClick={() => chooseOperator(symbol)}
+      className="bg-keys-main-base text-skin-base"
+    >
+      {symbol}
+    </button>
+  );
 }

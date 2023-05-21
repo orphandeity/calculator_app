@@ -2,8 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Backgrounds */
+    --color-bg-main: 59, 71, 100;
+    --color-bg-keypad: 35, 44, 67;
+    --color-bg-display: 25, 32, 52;
+    /* Keys */
+    --color-keys-main-bg: 234, 227, 220;
+    --color-keys-main-shadow: 180, 165, 152;
+    --color-keys-destructive-bg: 208, 63, 47;
+    --color-keys-destructive-shadow: 147, 38, 26;
+    --color-keys-eval-bg: 99, 112, 151;
+    --color-keys-eval-shadow: 64, 78, 114;
+    /* Text */
+    --color-text-base: 68, 75, 90;
+    --color-text-inverted: 255, 255, 255;
+  }
+
+  .theme-2 {
+    /* Backgrounds */
+    --color-bg-main: 230, 230, 230;
+    --color-bg-keypad: 209, 204, 204;
+    --color-bg-display: 237, 237, 237;
+    /* Keys */
+    --color-keys-main-bg: 229, 228, 225;
+    --color-keys-main-shadow: 167, 157, 145;
+    --color-keys-destructive-bg: 55, 127, 134;
+    --color-keys-destructive-shadow: 27, 95, 101;
+    --color-keys-eval-bg: 202, 85, 2;
+    --color-keys-eval-shadow: 137, 58, 1;
+    /* Text */
+    --color-text-base: 53, 53, 44;
+    --color-text-inverted: 255, 255, 255;
+  }
+
+  .theme-3 {
+    /* Backgrounds */
+    --color-bg-main: 22, 6, 40;
+    --color-bg-keypad: 29, 9, 52;
+    --color-bg-display: 29, 9, 52;
+    /* Keys */
+    --color-keys-main-bg: 52, 28, 79;
+    --color-keys-main-shadow: 135, 28, 156;
+    --color-keys-destructive-bg: 88, 7, 125;
+    --color-keys-destructive-shadow: 188, 21, 244;
+    --color-keys-eval-bg: 0, 224, 209;
+    --color-keys-eval-shadow: 108, 249, 242;
+    /* Text */
+    --color-text-base: 255, 229, 61;
+    --color-text-inverted: 255, 255, 255;
+  }
+
+  body {
+    font-family: "League Spartan Variable", sans-serif;
+  }
+}
+
 @layer components {
   button {
-    @apply grid place-content-center rounded-lg bg-stone-200 p-2 text-xl font-bold;
+    @apply grid place-content-center rounded-lg p-2 text-xl font-bold;
   }
 }

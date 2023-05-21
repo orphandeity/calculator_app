@@ -3,7 +3,16 @@ type DigitButtonProps = {
 };
 
 export default function DigitButton({ digit }: DigitButtonProps) {
-  function addDigit(digit: string): void {}
+  function addDigit(digit: string): void {
+    // TODO
+  }
 
-  return <button onClick={() => addDigit(digit)}>{digit}</button>;
+  return (
+    <button
+      onClick={() => addDigit(digit)}
+      className="bg-keys-main-base text-skin-base"
+    >
+      {digit}
+    </button>
+  );
 }
