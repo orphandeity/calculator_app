@@ -1,15 +1,12 @@
 type DigitButtonProps = {
   digit: string;
+  dispatch: React.Dispatch<AddDigitAction>;
 };
 
-export default function DigitButton({ digit }: DigitButtonProps) {
-  function addDigit(digit: string): void {
-    // TODO
-  }
-
+export default function DigitButton({ digit, dispatch }: DigitButtonProps) {
   return (
     <button
-      onClick={() => addDigit(digit)}
+      onClick={() => dispatch({ type: "addDigit", payload: digit })}
       className="bg-keys-main-base text-skin-base"
     >
       {digit}
