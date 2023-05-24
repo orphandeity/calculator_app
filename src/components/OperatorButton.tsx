@@ -9,11 +9,14 @@ export default function OperatorButton({ symbol }: OperatorButtonProps) {
   const { dispatch } = useContext(CalculatorContext);
 
   return (
-    <button
-      onClick={() => dispatch({ type: "chooseOperator", payload: symbol })}
-      className="bg-keys-main-base text-skin-base"
-    >
-      {symbol}
-    </button>
+    <div className="relative">
+      <div className="absolute inset-0 translate-y-1 rounded-lg bg-keys-main-shadow" />
+      <button
+        onClick={() => dispatch({ type: "chooseOperator", payload: symbol })}
+        className="relative z-0 w-full bg-keys-main-base text-skin-base"
+      >
+        {symbol}
+      </button>
+    </div>
   );
 }

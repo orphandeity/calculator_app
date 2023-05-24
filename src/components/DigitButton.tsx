@@ -9,11 +9,14 @@ export default function DigitButton({ digit }: DigitButtonProps) {
   const { dispatch } = useContext(CalculatorContext);
 
   return (
-    <button
-      onClick={() => dispatch({ type: "addDigit", payload: digit })}
-      className="bg-keys-main-base text-skin-base"
-    >
-      {digit}
-    </button>
+    <div className="relative">
+      <div className="absolute inset-0 translate-y-1 rounded-lg bg-keys-main-shadow" />
+      <button
+        onClick={() => dispatch({ type: "addDigit", payload: digit })}
+        className="relative z-0 w-full bg-keys-main-base text-skin-base"
+      >
+        {digit}
+      </button>
+    </div>
   );
 }

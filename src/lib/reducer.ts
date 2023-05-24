@@ -30,10 +30,10 @@ export function calculatorReducer(
       };
     }
     case "chooseOperator": {
-      if (!state.currentOperand && !state.previousOperand) {
+      if (!state.previousOperand && !state.currentOperand) {
         return state;
       }
-      if (state.previousOperand == "") {
+      if (!state.previousOperand && state.currentOperand) {
         return {
           ...state,
           previousOperand: state.currentOperand,
