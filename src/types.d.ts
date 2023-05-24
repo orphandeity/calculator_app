@@ -17,3 +17,8 @@ interface CalculatorState {
   operator: string;
   overwrite: boolean;
 }
+
+interface CalculatorContext {
+  state: CalculatorState;
+  dispatch: React.Dispatch<CalculatorAction>;
+}

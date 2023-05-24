@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { CalculatorContext } from "../context";
+
 type DigitButtonProps = {
   digit: string;
-  dispatch: React.Dispatch<AddDigitAction>;
 };
 
-export default function DigitButton({ digit, dispatch }: DigitButtonProps) {
+export default function DigitButton({ digit }: DigitButtonProps) {
+  const { dispatch } = useContext(CalculatorContext);
+
   return (
     <button
       onClick={() => dispatch({ type: "addDigit", payload: digit })}

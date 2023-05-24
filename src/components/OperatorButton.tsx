@@ -1,12 +1,13 @@
+import { useContext } from "react";
+import { CalculatorContext } from "../context";
+
 type OperatorButtonProps = {
   symbol: string;
-  dispatch: React.Dispatch<CalculatorAction>;
 };
 
-export default function OperatorButton({
-  symbol,
-  dispatch,
-}: OperatorButtonProps) {
+export default function OperatorButton({ symbol }: OperatorButtonProps) {
+  const { dispatch } = useContext(CalculatorContext);
+
   return (
     <button
       onClick={() => dispatch({ type: "chooseOperator", payload: symbol })}
