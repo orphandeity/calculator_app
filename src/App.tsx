@@ -96,6 +96,22 @@ function App() {
     overwrite: false,
   });
 
+  const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+    maximumFractionDigits: 0,
+  });
+
+  function formatOperand(operand: string) {
+    if (operand == null) return;
+
+    const [integer, decimal] = operand.split(".");
+
+    if (decimal == null) {
+      return String(INTEGER_FORMATTER.format(Number(integer)));
+    } else {
+      return `${INTEGER_FORMATTER.format(Number(integer))}.${decimal}`;
+    }
+  }
+
   return (
     <main className="grid min-h-screen place-content-center bg-base-main">
       <div>
@@ -103,7 +119,7 @@ function App() {
         {/* TODO: theme selection */}
       </div>
       <div className="mt-8 flex h-24 items-center justify-end rounded-lg bg-base-display p-4 text-5xl font-bold text-skin-inverted">
-        <span>{state.currentOperand}</span>
+        <span>{formatOperand(state.currentOperand) || "0"}</span>
       </div>
       <div className="mt-6 grid grid-cols-4 gap-3 rounded-lg bg-base-keys p-6 text-skin-inverted">
         <DigitButton digit="7" dispatch={dispatch} />
