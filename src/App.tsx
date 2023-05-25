@@ -1,19 +1,39 @@
+import { useContext, useState } from "react";
+import { CalculatorContext } from "./context";
 import { formatOperand } from "./lib/utils";
 import DigitButton from "./components/DigitButton";
 import OperatorButton from "./components/OperatorButton";
-import { useContext } from "react";
-import { CalculatorContext } from "./context";
+import ThemeSelection from "./components/ThemeSelection";
+import clsx from "clsx";
 
 function App() {
   const { state, dispatch } = useContext(CalculatorContext);
+  const [theme, setTheme] = useState("theme-1");
 
   return (
-    <main className="-z-50 grid min-h-screen place-content-center bg-base-main">
-      <div>
-        <h1 className="text-xl font-bold text-skin-inverted">calc</h1>
-        {/* TODO: theme selection */}
+    <main
+      className={clsx(
+        "-z-50 grid min-h-screen place-content-center bg-base-main",
+        theme
+      )}
+    >
+      <div className="flex items-center justify-between">
+        <h1
+          className={clsx(
+            "text-xl font-bold",
+            theme == "theme-1" ? "text-skin-inverted" : "text-skin-base"
+          )}
+        >
+          calc
+        </h1>
+        <ThemeSelection theme={theme} setTheme={setTheme} />
       </div>
-      <div className="mt-8 flex h-24 items-center justify-end rounded-lg bg-base-display p-4 text-5xl font-bold text-skin-inverted">
+      <div
+        className={clsx(
+          "mt-8 flex h-24 items-center justify-end rounded-lg bg-base-display p-4 text-5xl font-bold",
+          theme == "theme-1" ? "text-skin-inverted" : "text-skin-base"
+        )}
+      >
         <span>{formatOperand(state.currentOperand)}</span>
       </div>
       <div className="mt-6 grid grid-cols-4 gap-3 rounded-lg bg-base-keys p-6 text-skin-inverted">
@@ -53,7 +73,10 @@ function App() {
         <div className="relative col-span-2">
           <div className="absolute inset-0 translate-y-1 rounded-lg bg-keys-evaluate-shadow" />
           <button
-            className="relative z-0 w-full bg-keys-evaluate-base"
+            className={clsx(
+              "relative z-0 w-full bg-keys-evaluate-base",
+              theme == "theme-3" ? "text-[#1A2327]" : null
+            )}
             onClick={() => dispatch({ type: "evaluate" })}
           >
             =

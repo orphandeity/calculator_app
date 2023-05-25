@@ -22,3 +22,5 @@ interface CalculatorContext {
   state: CalculatorState;
   dispatch: React.Dispatch<CalculatorAction>;
 }
+
+type Theme = "theme-1" | "theme-2" | "theme-3";
