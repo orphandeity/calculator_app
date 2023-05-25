@@ -16,12 +16,12 @@ export default function ThemeSelection({
       value={theme}
       onValueChange={(value) => setTheme(value)}
       className={clsx(
-        "flex items-end gap-4",
+        "flex items-end gap-4 text-xs font-bold tracking-[1px]",
         theme == "theme-1" ? "text-skin-inverted" : "text-skin-base"
       )}
     >
-      <span>THEME</span>
-      <div>
+      <span className="pb-1">THEME</span>
+      <div className="space-y-1">
         <div className="flex justify-around">
           <span>1</span>
           <span>2</span>

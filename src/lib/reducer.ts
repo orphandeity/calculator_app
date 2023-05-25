@@ -13,6 +13,9 @@ export function calculatorReducer(
 ): CalculatorState {
   switch (action.type) {
     case "addDigit": {
+      // When starting a new equation, the result of the previous equation is
+      // still the value of `currentOperand`.  This value needs to be overwritten
+      // when adding the first digit of a new equation.
       if (state.overwrite || state.currentOperand == "0") {
         return {
           previousOperand: "",
@@ -21,14 +24,17 @@ export function calculatorReducer(
           overwrite: false,
         };
       }
+      // Disallow multiple decimal points
       if (state.currentOperand.includes(".") && action.payload == ".") {
         return state;
       }
+
       return {
         ...state,
         currentOperand: `${state.currentOperand}${action.payload}`,
       };
     }
+
     case "chooseOperator": {
       if (!state.previousOperand && !state.currentOperand) {
         return state;
@@ -55,15 +61,18 @@ export function calculatorReducer(
         operator: action.payload,
       };
     }
+
     case "deleteDigit": {
       return {
         ...state,
         currentOperand: state.currentOperand.slice(0, -1),
       };
     }
+
     case "clear": {
       return initialState;
     }
+
     case "evaluate": {
       if (!state.previousOperand || !state.currentOperand || !state.operator) {
         return state;

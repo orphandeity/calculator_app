@@ -61,6 +61,6 @@
 
 @layer components {
   button {
-    @apply grid place-content-center rounded-lg p-2 text-xl font-bold;
+    @apply grid h-[60px] w-full place-content-center rounded-lg text-[32px] font-bold leading-none;
   }
 }

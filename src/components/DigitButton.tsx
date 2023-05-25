@@ -13,7 +13,7 @@ export default function DigitButton({ digit }: DigitButtonProps) {
       <div className="absolute inset-0 translate-y-1 rounded-lg bg-keys-main-shadow" />
       <button
         onClick={() => dispatch({ type: "addDigit", payload: digit })}
-        className="relative z-0 w-full bg-keys-main-base text-skin-base"
+        className="relative z-0 w-[60px] bg-keys-main-base text-skin-base"
       >
         {digit}
       </button>
